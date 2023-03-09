@@ -31,7 +31,6 @@ function Login() {
   const [loginError, setLoginError] = useState(null);
 
   const onSubmit = async (values: LoginUserInput) => {
-    console.log(values);
     try {
       await axios.post(
         `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/auth/signin`,
@@ -68,13 +67,6 @@ function Login() {
   return (
     <div className={containerClassName}>
       <div className="flex flex-column align-items-center justify-content-center w-full">
-        <img
-          src={`${contextPath}/layout/images/logo-${
-            layoutConfig.colorScheme === "light" ? "dark" : "white"
-          }.svg`}
-          alt="Sakai logo"
-          className="mb-5 w-6rem flex-shrink-0"
-        />
         <div
           className="w-11 sm:w-10 md:w-7 lg:w-7 xl:w-5"
           style={{

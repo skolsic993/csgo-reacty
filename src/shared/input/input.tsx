@@ -33,12 +33,12 @@ export const Input = ({
           {...field}
           className="w-full mb-1"
           style={{ padding: "1rem" }}
-          {...register("email")}
+          {...register(name)}
         />
       ) : (
         <Password
           type="password"
-          {...register("password")}
+          {...register(name)}
           id={field.name}
           {...field}
           className="w-full"
