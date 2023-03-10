@@ -23,9 +23,9 @@ export const Input = ({
     <>
       <label
         htmlFor={field.name}
-        className="block text-900 text-xl font-medium mb-2"
+        className="block text-900 text-md font-medium mb-2"
       >
-        {label}
+        {label + " *"}
       </label>
       {type === "text" ? (
         <InputText
