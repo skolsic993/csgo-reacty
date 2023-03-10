@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { Button } from "primereact/button";
+import { Message } from "primereact/message";
 import { classNames } from "primereact/utils";
 import { useContext, useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -37,7 +38,9 @@ type CreateUserInput = TypeOf<typeof createUserSchema>;
 
 export default function Register() {
   const router = useRouter();
-  const [registerError, setRegisterError] = useState(null);
+  const [registerError, setRegisterError] = useState<{
+    message: string;
+  } | null>(null);
 
   const onSubmit = async (values: CreateUserInput) => {
     console.log(values);
@@ -49,7 +52,7 @@ export default function Register() {
       );
       router.push("/");
     } catch (error: any) {
-      setRegisterError(error?.message);
+      setRegisterError(error);
     }
   };
 
@@ -84,7 +87,7 @@ export default function Register() {
 
   const { layoutConfig } = useContext(LayoutContext);
   const containerClassName = classNames(
-    "surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden w-full",
+    "surface-ground flex align-items-center justify-content-center min-h-screen  overflow-hidden w-full",
     { "p-input-filled": layoutConfig.inputStyle === "filled" }
   );
 
@@ -92,7 +95,7 @@ export default function Register() {
     <div className={containerClassName}>
       <div className="flex flex-column align-items-center justify-content-center w-full">
         <div
-          className="w-11 sm:w-10 md:w-7 lg:w-7 xl:w-5"
+          className="w-11 sm:w-10 md:w-7 lg:w-7 xl:w-4"
           style={{
             borderRadius: "56px",
             padding: "0.3rem",
@@ -110,7 +113,7 @@ export default function Register() {
                   Welcome back!
                 </div>
                 <span className="text-600 font-medium">
-                  Sign in to continue
+                  Sign in to continues
                 </span>
               </div>
 
@@ -217,6 +220,23 @@ export default function Register() {
                     </>
                   )}
                 />
+
+                {JSON.stringify(registerError?.message) && (
+                  <Message
+                    severity="error"
+                    text={"User with this Email already exists!"}
+                  />
+                )}
+
+                <div className="my-3">
+                  Already have an account?{" "}
+                  <span
+                    className="text-primary font-medium cursor-pointer"
+                    onClick={() => router.push("/auth/signin")}
+                  >
+                    Sign in here!
+                  </span>
+                </div>
               </div>
 
               <Button

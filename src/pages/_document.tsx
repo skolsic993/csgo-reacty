@@ -9,7 +9,7 @@ export default function Document() {
         {" "}
         <link
           id="theme-css"
-          href={`${contextPath}/themes/lara-light-indigo/theme.css`}
+          href={`${contextPath}/themes/lara-dark-purple/theme.css`}
           rel="stylesheet"
         ></link>
       </Head>
