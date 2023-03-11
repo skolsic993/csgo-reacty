@@ -48,8 +48,6 @@ export default function Home({
       </>
     );
   }
-
-  return <div>Please login</div>;
 }
 
 export const getMe = async (context: GetServerSidePropsContext) => {
@@ -64,20 +62,7 @@ export const getMe = async (context: GetServerSidePropsContext) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const something = context.req.headers;
-
   const session = await getMe(context);
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/auth/signin",
-        permanent: false,
-      },
-      props: {
-        fallbackData: session,
-        something,
-      },
-    };
-  }
 
   return {
     props: {

@@ -35,6 +35,7 @@ type CreateUserInput = TypeOf<typeof createUserSchema>;
 
 export const SignUpForm = () => {
   const router = useRouter();
+  const [showButton, setShowButton] = useState(false);
   const [loadingButton, setLoadingButton] = useState(false);
   const [registerError, setRegisterError] = useState<{
     message: string;
@@ -73,6 +74,8 @@ export const SignUpForm = () => {
   } = useForm({ defaultValues, resolver: zodResolver(createUserSchema) });
 
   useEffect(() => {
+    setShowButton(true);
+
     const firstError = (
       Object.keys(errors) as Array<keyof typeof errors>
     ).reduce<keyof typeof errors | null>((field, a) => {
@@ -217,12 +220,14 @@ export const SignUpForm = () => {
           </div>
         </div>
 
-        <Button
-          label="Sign Up"
-          className="primary w-full p-3 text-xl"
-          type="submit"
-          loading={loadingButton}
-        />
+        {showButton && (
+          <Button
+            label="Sign Up"
+            className="primary w-full p-3 text-xl"
+            type="submit"
+            loading={loadingButton}
+          />
+        )}
       </div>
     </form>
   );

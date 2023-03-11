@@ -1,9 +1,15 @@
 import { useRouter } from "next/router";
 import { Button } from "primereact/button";
+import { useEffect, useState } from "react";
 import AppConfig from "../../layout/AppConfig";
 
 export default function NotFound() {
   const router = useRouter();
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    setShowButton(true);
+  }, []);
 
   return (
     <div className="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
@@ -31,12 +37,15 @@ export default function NotFound() {
               You do not have the necessary permisions!
             </div>
             <h1 className="text-8xl text-pink-500 mb-4">404</h1>
-            <Button
-              icon="pi pi-arrow-left"
-              label="Go to Dashboard"
-              className="p-button-text"
-              onClick={() => router.push("/")}
-            />
+
+            {showButton && (
+              <Button
+                icon="pi pi-arrow-left"
+                label="Go to Dashboard"
+                className="p-button-text"
+                onClick={() => router.push("/")}
+              />
+            )}
           </div>
         </div>
       </div>

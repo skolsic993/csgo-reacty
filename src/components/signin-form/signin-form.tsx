@@ -25,6 +25,7 @@ type LoginUserInput = TypeOf<typeof loginSchema>;
 
 const SignInForm = () => {
   const router = useRouter();
+  const [showButton, setShowButton] = useState(false);
   const [loadingButton, setLoadingButton] = useState(false);
   const [loginError, setLoginError] = useState<{ message: string } | null>(
     null
@@ -57,6 +58,7 @@ const SignInForm = () => {
 
   useEffect(() => {
     setFocus("password");
+    setShowButton(true);
   }, [setFocus]);
 
   return (
@@ -123,12 +125,14 @@ const SignInForm = () => {
           </div>
         </div>
 
-        <Button
-          label="Sign In"
-          className="primary w-full p-3 text-xl"
-          type="submit"
-          loading={loadingButton}
-        />
+        {showButton && (
+          <Button
+            label="Sign In"
+            className="primary w-full p-3 text-xl"
+            type="submit"
+            loading={loadingButton}
+          />
+        )}
       </div>
     </form>
   );
