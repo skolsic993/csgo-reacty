@@ -1,19 +1,25 @@
 import UserDetails from "@/components/home/user-details/user-details";
+import { UserStatistics } from "@/components/home/user-stats/user-stats";
+
 import { FaceitAccount } from "@/models/FaceitAccount";
 import { User } from "@/models/User";
+import { UserStats } from "@/models/UserStats";
 import fetcher from "@/utils/fetcher";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 
 export default function Home({
   faceitUser,
   user,
+  userStats,
 }: {
   faceitUser: FaceitAccount;
   user: User;
+  userStats: UserStats;
 }) {
   return (
     <>
       <UserDetails faceitUser={faceitUser} />
+      <UserStatistics userStats={userStats} />
     </>
   );
 }
@@ -21,6 +27,16 @@ export default function Home({
 export const getUser = async (context: GetServerSidePropsContext) => {
   return await fetcher<User>(
     `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/me`,
+    context.req.headers
+  );
+};
+
+export const getUserStats = async (
+  context: GetServerSidePropsContext,
+  id: string
+) => {
+  return await fetcher<User>(
+    `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/stats/${id}`,
     context.req.headers
   );
 };
@@ -40,11 +56,13 @@ export const getServerSideProps: GetServerSideProps = async (
 ) => {
   const user = await getUser(context);
   const faceitUser = await getFaceItUser(context, user?.nick);
+  const userStats = await getUserStats(context, faceitUser?.player_id);
 
   return {
     props: {
       user,
       faceitUser,
+      userStats,
     },
   };
 };
