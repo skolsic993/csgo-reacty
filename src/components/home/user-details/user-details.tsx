@@ -3,7 +3,7 @@ import { FaceitAccount } from "@/models/FaceitAccount";
 const UserDetails = ({ faceitUser }: { faceitUser: FaceitAccount }) => {
   return (
     <>
-      <div className="flex align-items-start flex-column lg:flex-row lg:justify-content-between">
+      <div className="flex align-items-start flex-column lg:flex-row lg:justify-content-between mb-4">
         <div className="flex align-items-start sm:flex-row">
           <img
             src={faceitUser?.avatar}

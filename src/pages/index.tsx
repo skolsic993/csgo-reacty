@@ -4,22 +4,24 @@ import { UserStatistics } from "@/components/home/user-stats/user-stats";
 import { FaceitAccount } from "@/models/FaceitAccount";
 import { User } from "@/models/User";
 import { UserStats } from "@/models/UserStats";
+import PolarArea from "@/shared/polar-area/polar-area";
 import fetcher from "@/utils/fetcher";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 
 export default function Home({
   faceitUser,
-  user,
   userStats,
 }: {
   faceitUser: FaceitAccount;
-  user: User;
   userStats: UserStats;
 }) {
   return (
     <>
       <UserDetails faceitUser={faceitUser} />
       <UserStatistics userStats={userStats} />
+      <div className="grid">
+        <PolarArea stats={userStats} />
+      </div>
     </>
   );
 }
@@ -60,7 +62,6 @@ export const getServerSideProps: GetServerSideProps = async (
 
   return {
     props: {
-      user,
       faceitUser,
       userStats,
     },

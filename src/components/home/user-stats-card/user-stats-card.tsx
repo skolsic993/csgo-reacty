@@ -35,8 +35,9 @@ const UserStatsCard = ({
         {streak &&
           streakValues?.map((item: string) => (
             <span
+              key={Math.random()}
               className={`${
-                item === "w" ? " text-red-500 " : "  text-green-500 "
+                item === "w" ? " text-green-500 " : " text-red-500 "
               } uppercase`}
             >
               {item + " "}

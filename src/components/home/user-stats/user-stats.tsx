@@ -1,10 +1,8 @@
 import UserStatsCard from "../user-stats-card/user-stats-card";
 
 export const UserStatistics = ({ userStats }: { userStats: any }) => {
-  console.log(userStats.lifetime);
-
   return (
-    <div className="surface-ground py-5">
+    <div className="surface-ground py-2">
       <div className="grid">
         <UserStatsCard
           title={"Wins"}
