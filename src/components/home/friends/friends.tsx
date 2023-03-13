@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Friends = ({ friends }: { friends: FaceitAccount[] }) => {
   return (
-    <div className="surface-card shadow-2 p-3 border-round">
+    <div className="surface-card shadow-2 p-3 border-round mb-3">
       <div className="flex justify-content-between align-items-center">
         <h2 className="text-xl font-medium mb-2">Friends</h2>
 
@@ -17,12 +17,10 @@ const Friends = ({ friends }: { friends: FaceitAccount[] }) => {
       <div className="flex flex-column">
         {friends?.map((friend: FaceitAccount) => (
           <div className="flex mt-4" key={friend?.player_id}>
-            <div
-              className="flex align-items-center justify-content-center  border-round"
-              style={{ width: "3rem", height: "3rem" }}
-            >
+            <div className="flex align-items-center justify-content-center  border-round">
               <img
-                className="w-full border-circle"
+                className=" border-circle"
+                style={{ width: "35px", height: "35px", objectFit: "cover" }}
                 src={`${
                   friend?.avatar ? friend?.avatar : "/images/user-icon.png"
                 }`}

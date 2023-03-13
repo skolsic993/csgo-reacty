@@ -1,5 +1,6 @@
 import Friends from "@/components/home/friends/friends";
 import { Matches } from "@/components/home/matches/matches";
+import { Ranks } from "@/components/home/ranks/ranks";
 import { Tournaments } from "@/components/home/tournaments/tournaments";
 import UserDetails from "@/components/home/user-details/user-details";
 import { UserStatistics } from "@/components/home/user-stats/user-stats";
@@ -15,10 +16,12 @@ export default function Home({
   faceitUser,
   userStats,
   friends,
+  ranks,
 }: {
   faceitUser: FaceitAccount;
   userStats: UserStats;
   friends: FaceitAccount[];
+  ranks: any;
 }) {
   return (
     <>
@@ -36,6 +39,7 @@ export default function Home({
 
         <div className="col-12 md:col-6 xl:col-3">
           <Friends friends={friends} />
+          <Ranks ranks={ranks?.items.slice(0, 6)} />
         </div>
       </div>
     </>
@@ -81,6 +85,16 @@ export const getUserFriends = async (
   );
 };
 
+export const getGlobalRanks = async (
+  context: GetServerSidePropsContext,
+  region: string
+) => {
+  return await fetcher<FaceitAccount>(
+    `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/ranks/${region}`,
+    context.req.headers
+  );
+};
+
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
 ) => {
@@ -91,12 +105,14 @@ export const getServerSideProps: GetServerSideProps = async (
     context,
     faceitUser?.friends_ids.splice(0, 3)
   );
+  const ranks = await getGlobalRanks(context, "EU");
 
   return {
     props: {
       faceitUser,
       userStats,
       friends,
+      ranks,
     },
   };
 };
