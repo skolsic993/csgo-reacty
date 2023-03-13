@@ -1,3 +1,5 @@
+import { Matches } from "@/components/home/matches/matches";
+import { Tournaments } from "@/components/home/tournaments/tournaments";
 import UserDetails from "@/components/home/user-details/user-details";
 import { UserStatistics } from "@/components/home/user-stats/user-stats";
 
@@ -21,6 +23,10 @@ export default function Home({
       <UserStatistics userStats={userStats} />
       <div className="grid">
         <PolarArea stats={userStats} />
+        <div className="col-12 md:col-6 xl:col-4">
+          <Tournaments />
+          <Matches userStats={userStats} />
+        </div>
       </div>
     </>
   );

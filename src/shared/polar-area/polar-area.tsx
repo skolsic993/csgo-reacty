@@ -20,17 +20,13 @@ const PolarArea = ({ stats }: { stats: UserStats | any }) => {
   });
 
   useEffect(() => {
-    const documentStyle = getComputedStyle(document.documentElement);
-    const textColor = documentStyle.getPropertyValue("--gray-600");
-    const surfaceBorder = documentStyle.getPropertyValue("--surface-border");
-
     const data = {
       datasets: [
         {
           data: [
             selectedMapStats[0]?.stats?.["K/D Ratio"],
-            selectedMapStats[0]?.stats?.["Average Deaths"],
             selectedMapStats[0]?.stats?.["Average Kills"],
+            selectedMapStats[0]?.stats?.["Average Deaths"],
             selectedMapStats[0]?.stats?.["Average Assists"],
             selectedMapStats[0]?.stats?.["Headshots per Match"],
             selectedMapStats[0]?.stats?.["Average MVPs"],
@@ -51,8 +47,8 @@ const PolarArea = ({ stats }: { stats: UserStats | any }) => {
       ],
       labels: [
         "K/D Ratio",
-        "K/D Ratio",
         "Average Kills",
+        "Average Deaths",
         "Average Assists",
         "Headshots per Match",
         "Average MVPs",

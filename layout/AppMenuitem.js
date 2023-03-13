@@ -32,7 +32,7 @@ const AppMenuitem = (props) => {
     return () => {
       router.events.off("routeChangeComplete", onRouteChange);
     };
-  }, []);
+  }, [item]);
 
   const itemClick = (event) => {
     //avoid processing disabled items
