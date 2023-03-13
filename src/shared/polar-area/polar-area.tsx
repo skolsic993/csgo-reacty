@@ -24,7 +24,6 @@ const PolarArea = ({ stats }: { stats: UserStats | any }) => {
       datasets: [
         {
           data: [
-            selectedMapStats[0]?.stats?.["K/D Ratio"],
             selectedMapStats[0]?.stats?.["Average Kills"],
             selectedMapStats[0]?.stats?.["Average Deaths"],
             selectedMapStats[0]?.stats?.["Average Assists"],
@@ -46,7 +45,6 @@ const PolarArea = ({ stats }: { stats: UserStats | any }) => {
         },
       ],
       labels: [
-        "K/D Ratio",
         "Average Kills",
         "Average Deaths",
         "Average Assists",
@@ -78,31 +76,29 @@ const PolarArea = ({ stats }: { stats: UserStats | any }) => {
   }, [selectedMap]);
 
   return (
-    <div className="col-12 md:col-6 xl:col-5 h-full">
-      <div
-        className="surface-card shadow-2 p-3 border-round flex flex-column align-items-center"
-        key={Math.random()}
-      >
-        <div className="flex justify-content-between flex-wrap align-items-center w-full mb-4">
-          <h2 className="text-xl font-medium mb-2">User Map Statistics</h2>
-          <Dropdown
-            value={selectedMap}
-            onChange={(e) => setSelectedMap(e.value)}
-            options={maps}
-            optionLabel="name"
-            placeholder="Select a City"
-            className="w-full md:w-14rem"
-          />
-        </div>
-        <div className="flex align-items-center p-2">
-          <Chart
-            type="polarArea"
-            data={chartData}
-            key={Math.random()}
-            options={chartOptions}
-            style={{ position: "relative", width: "100%" }}
-          />
-        </div>
+    <div
+      className="surface-card shadow-2 p-3 border-round flex flex-column align-items-center"
+      key={Math.random()}
+    >
+      <div className="flex justify-content-between flex-wrap align-items-center w-full mb-4">
+        <h2 className="text-xl font-medium mb-2">User Map Statistics</h2>
+        <Dropdown
+          value={selectedMap}
+          onChange={(e) => setSelectedMap(e.value)}
+          options={maps}
+          optionLabel="name"
+          placeholder="Select a City"
+          className="w-full md:w-14rem"
+        />
+      </div>
+      <div className="flex align-items-center p-2">
+        <Chart
+          type="polarArea"
+          data={chartData}
+          key={Math.random()}
+          options={chartOptions}
+          style={{ position: "relative", width: "100%" }}
+        />
       </div>
     </div>
   );

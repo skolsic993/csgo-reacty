@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const Tournaments = () => {
   return (
-    <div className="surface-card shadow-2 p-3 border-round" key={Math.random()}>
+    <div className="surface-card shadow-2 p-3 border-round">
       <div className="flex justify-content-between align-items-center">
         <h2 className="text-xl font-medium mb-2">Tournaments</h2>
 

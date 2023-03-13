@@ -1,3 +1,4 @@
+import Friends from "@/components/home/friends/friends";
 import { Matches } from "@/components/home/matches/matches";
 import { Tournaments } from "@/components/home/tournaments/tournaments";
 import UserDetails from "@/components/home/user-details/user-details";
@@ -13,19 +14,28 @@ import { GetServerSideProps, GetServerSidePropsContext } from "next";
 export default function Home({
   faceitUser,
   userStats,
+  friends,
 }: {
   faceitUser: FaceitAccount;
   userStats: UserStats;
+  friends: FaceitAccount[];
 }) {
   return (
     <>
       <UserDetails faceitUser={faceitUser} />
       <UserStatistics userStats={userStats} />
       <div className="grid">
-        <PolarArea stats={userStats} />
+        <div className="col-12 md:col-6 xl:col-5 h-full">
+          <PolarArea stats={userStats} />
+        </div>
+
         <div className="col-12 md:col-6 xl:col-4">
           <Tournaments />
           <Matches userStats={userStats} />
+        </div>
+
+        <div className="col-12 md:col-6 xl:col-3">
+          <Friends friends={friends} />
         </div>
       </div>
     </>
@@ -59,17 +69,34 @@ export const getFaceItUser = async (
   );
 };
 
+export const getUserFriends = async (
+  context: GetServerSidePropsContext,
+  ids: string[]
+) => {
+  const friends = ids.join("&&");
+
+  return await fetcher<FaceitAccount>(
+    `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/friends/${friends}`,
+    context.req.headers
+  );
+};
+
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
 ) => {
   const user = await getUser(context);
   const faceitUser = await getFaceItUser(context, user?.nick);
   const userStats = await getUserStats(context, faceitUser?.player_id);
+  const friends = await getUserFriends(
+    context,
+    faceitUser?.friends_ids.splice(0, 3)
+  );
 
   return {
     props: {
       faceitUser,
       userStats,
+      friends,
     },
   };
 };
