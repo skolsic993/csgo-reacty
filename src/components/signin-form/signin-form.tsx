@@ -39,8 +39,9 @@ const SignInForm = () => {
         values,
         { withCredentials: true }
       );
-      setLoadingButton(false);
+
       router.push("/");
+      setLoadingButton(false);
     } catch (error: any) {
       setLoginError(error);
       setLoadingButton(false);
