@@ -1,4 +1,6 @@
+import { Championships } from "@/components/home/championships/championships";
 import Friends from "@/components/home/friends/friends";
+import Hubs from "@/components/home/hubs/hubs";
 import { Matches } from "@/components/home/matches/matches";
 import { Ranks } from "@/components/home/ranks/ranks";
 import { Tournaments } from "@/components/home/tournaments/tournaments";
@@ -17,11 +19,15 @@ export default function Home({
   userStats,
   friends,
   ranks,
+  hubs,
+  championships,
 }: {
   faceitUser: FaceitAccount;
   userStats: UserStats;
   friends: FaceitAccount[];
   ranks: any;
+  hubs: any;
+  championships: any;
 }) {
   return (
     <>
@@ -30,16 +36,23 @@ export default function Home({
       <div className="grid">
         <div className="col-12 md:col-6 xl:col-5 h-full">
           <PolarArea stats={userStats} />
+          <Hubs hubs={hubs} />
         </div>
 
         <div className="col-12 md:col-6 xl:col-4">
           <Tournaments />
           <Matches userStats={userStats} />
+          <Championships championships={championships} />
         </div>
 
-        <div className="col-12 md:col-6 xl:col-3">
-          <Friends friends={friends} />
-          <Ranks ranks={ranks?.items.slice(0, 6)} />
+        <div className="flex col-12 md:col-12 xl:col-3 flex-column sm:flex-row xl:flex-column">
+          <div className="sm:mr-3 xl:mr-0 w-full">
+            <Friends friends={friends} />
+          </div>
+
+          <div className="w-full">
+            <Ranks ranks={ranks?.items.slice(0, 6)} />
+          </div>
         </div>
       </div>
     </>
@@ -95,6 +108,23 @@ export const getGlobalRanks = async (
   );
 };
 
+export const getUserHubs = async (
+  context: GetServerSidePropsContext,
+  id: string
+) => {
+  return await fetcher<FaceitAccount>(
+    `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/hubs/${id}`,
+    context.req.headers
+  );
+};
+
+export const getChampionships = async (context: GetServerSidePropsContext) => {
+  return await fetcher(
+    `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/championships`,
+    context.req.headers
+  );
+};
+
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
 ) => {
@@ -106,6 +136,8 @@ export const getServerSideProps: GetServerSideProps = async (
     faceitUser?.friends_ids.splice(0, 3)
   );
   const ranks = await getGlobalRanks(context, "EU");
+  const hubs = await getUserHubs(context, faceitUser?.player_id);
+  const championships = await getChampionships(context);
 
   return {
     props: {
@@ -113,6 +145,8 @@ export const getServerSideProps: GetServerSideProps = async (
       userStats,
       friends,
       ranks,
+      hubs,
+      championships,
     },
   };
 };
