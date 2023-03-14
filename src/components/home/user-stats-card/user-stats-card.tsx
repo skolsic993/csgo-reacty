@@ -29,7 +29,7 @@ const UserStatsCard = ({
             className="flex align-items-center justify-content-center bg-blue-100 border-round"
             style={{ width: "2.5rem", height: "2.5rem" }}
           >
-            <i className={`pi ${icon} text-blue-500 text-xl`}></i>
+            <i className={`pi ${icon} text-indigo-500 text-xl`}></i>
           </div>
         </div>
         {streak &&

@@ -25,19 +25,20 @@ const PolarArea = ({ stats }: { stats: UserStats | any }) => {
         {
           data: [
             selectedMapStats[0]?.stats?.["Average Kills"],
-            selectedMapStats[0]?.stats?.["Average Deaths"],
             selectedMapStats[0]?.stats?.["Average Assists"],
+            selectedMapStats[0]?.stats?.["Average Deaths"],
             selectedMapStats[0]?.stats?.["Headshots per Match"],
             selectedMapStats[0]?.stats?.["Average MVPs"],
           ],
           backgroundColor: [
             "#42A5F5",
+            "#e8f230",
+            "#ca3c5f",
             "#66BB6A",
             "#FFA726",
             "#26C6DA",
             "#7E57C2",
             "#f23081",
-            "#e8f230",
             "#af45ed",
             "#b04545",
             "#4d8afa",
@@ -46,8 +47,8 @@ const PolarArea = ({ stats }: { stats: UserStats | any }) => {
       ],
       labels: [
         "Average Kills",
-        "Average Deaths",
         "Average Assists",
+        "Average Deaths",
         "Headshots per Match",
         "Average MVPs",
       ],

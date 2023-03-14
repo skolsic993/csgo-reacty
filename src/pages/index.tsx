@@ -36,13 +36,13 @@ export default function Home({
       <div className="grid">
         <div className="col-12 md:col-6 xl:col-5 h-full">
           <PolarArea stats={userStats} />
-          <Hubs hubs={hubs} />
+          <Championships />
         </div>
 
         <div className="col-12 md:col-6 xl:col-4">
           <Tournaments />
           <Matches userStats={userStats} />
-          <Championships championships={championships} />
+          <Hubs />
         </div>
 
         <div className="flex col-12 md:col-12 xl:col-3 flex-column sm:flex-row xl:flex-column">

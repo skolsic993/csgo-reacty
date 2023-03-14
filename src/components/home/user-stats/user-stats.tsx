@@ -8,7 +8,7 @@ export const UserStatistics = ({ userStats }: { userStats: any }) => {
           title={"Wins"}
           rate={userStats?.lifetime?.["Wins"]}
           average={userStats?.lifetime?.["Win Rate %"]}
-          icon={"pi-shopping-cart"}
+          icon={"pi-star-fill"}
           text={" win rate"}
         />
 
@@ -16,7 +16,7 @@ export const UserStatistics = ({ userStats }: { userStats: any }) => {
           title={"Average"}
           rate={userStats?.lifetime?.["Average K/D Ratio"]}
           average={userStats?.lifetime?.["Average Headshots %"]}
-          icon={"pi-shopping-cart"}
+          icon={"pi-sort-numeric-up"}
           text={" average headshots"}
         />
 
@@ -24,7 +24,7 @@ export const UserStatistics = ({ userStats }: { userStats: any }) => {
           title={"Win Streak"}
           rate={userStats?.lifetime?.["Current Win Streak"]}
           average={userStats?.lifetime?.["Longest Win Streak"]}
-          icon={"pi-shopping-cart"}
+          icon={"pi-sort-numeric-down-alt"}
           text={" longest win streak"}
         />
 
@@ -32,7 +32,7 @@ export const UserStatistics = ({ userStats }: { userStats: any }) => {
           title={"Matches"}
           rate={userStats?.lifetime?.["Matches"]}
           streak={userStats?.lifetime?.["Recent Results"]}
-          icon={"pi-shopping-cart"}
+          icon={"pi-sort-amount-up"}
         />
       </div>
     </div>
