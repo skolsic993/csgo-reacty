@@ -12,6 +12,7 @@ export interface UserStats {
     ["Longest Win Streak"]: string;
     ["Matches"]: string;
     ["Recent Results"]: string[];
+    ["K/D Ratio"]: string;
     totalHeadshot: string;
     headshot: string;
     longestWin: string;

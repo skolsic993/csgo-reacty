@@ -32,7 +32,7 @@ export const CardBody = ({
             <img src="/images/trophy.png" alt="Trophy" className="w-6" />
           ) : (
             <i
-              className={`"pi text-red-300" ${icon}`}
+              className="pi text-red-300 pi-flag"
               style={{ fontSize: "1.5rem" }}
             ></i>
           )}
