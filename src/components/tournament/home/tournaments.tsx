@@ -1,5 +1,6 @@
 import useFetch from "@/hooks/useFetch";
 import { Tournament } from "@/models/Tournament";
+import pickCorrectColor from "@/utils/pickKrobColor";
 import { Badge } from "primereact/badge";
 import { Divider } from "primereact/divider";
 import { Knob } from "primereact/knob";
@@ -9,50 +10,12 @@ export const Tournaments = () => {
     `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/tournaments`
   );
 
-  const pickCorrectColor = (value: number) => {
-    switch (value) {
-      case -1: {
-        return "#fcd6d6";
-      }
-      case 0: {
-        return "#fcd6d6";
-      }
-      case 1: {
-        return "#fcd6d6";
-      }
-      case 2: {
-        return "#f89b9b";
-      }
-      case 3: {
-        return "#fc7979";
-      }
-      case 4: {
-        return "#fc4e4e";
-      }
-      case 5: {
-        return "#ff2f2f";
-      }
-      case 6: {
-        return "#fd1f1f";
-      }
-      case 7: {
-        return "#ff1010";
-      }
-      case 8: {
-        return "#fa0909";
-      }
-      default: {
-        return "#a70000";
-      }
-    }
-  };
-
   return (
     <>
-      <div className=" border-round mb-2">
+      <div className="border-round mb-1">
         {data?.items?.slice(0, 10).map((tournament: Tournament) => (
           <li
-            className=" p-3 flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-4 surface-card shadow-1 border-round"
+            className=" p-3 flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-2 surface-card shadow-1 border-round"
             key={tournament?.tournament_id}
           >
             <div className="mb-3 lg:mb-0">
