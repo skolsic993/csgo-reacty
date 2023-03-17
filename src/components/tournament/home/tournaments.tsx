@@ -1,22 +1,29 @@
 import useFetch from "@/hooks/useFetch";
 import { Tournament } from "@/models/Tournament";
 import pickCorrectColor from "@/utils/pickKrobColor";
+import { useRouter } from "next/router";
 import { Badge } from "primereact/badge";
 import { Divider } from "primereact/divider";
 import { Knob } from "primereact/knob";
 
 export const Tournaments = () => {
+  const router = useRouter();
   const { data }: { data: { items: Tournament[] } } = useFetch(
     `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/tournaments`
   );
+
+  const rediredToDetailsPage = (tournament_id: string) => {
+    router.push(`/tournaments/${tournament_id}`);
+  };
 
   return (
     <>
       <div className="border-round mb-1">
         {data?.items?.slice(0, 10).map((tournament: Tournament) => (
           <li
-            className=" p-3 flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-2 surface-card shadow-1 border-round"
+            className="p-3 flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-2 surface-card shadow-1 border-round cursor-pointer"
             key={tournament?.tournament_id}
+            onClick={() => rediredToDetailsPage(tournament?.tournament_id)}
           >
             <div className="mb-3 lg:mb-0">
               <span className="text-900 font-medium text-xl">

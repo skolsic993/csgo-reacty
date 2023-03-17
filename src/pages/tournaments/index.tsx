@@ -5,7 +5,7 @@ const Tournament = () => {
   return (
     <>
       <div>
-        <div className="surface-ground py-2">
+        <div className="surface-ground mb-2">
           <TournamentHeaderCards />
         </div>
 

@@ -21,4 +21,7 @@ export interface Tournament {
   membership_type: string;
   number_of_players: number;
   number_of_players_joined: number;
+  anticheat_required: boolean;
+  game_id: string;
+  match_type: string;
 }

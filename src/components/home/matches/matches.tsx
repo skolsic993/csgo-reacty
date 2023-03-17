@@ -21,6 +21,7 @@ export const Matches = ({ userStats }: { userStats: UserStats }) => {
         secondValue={+userStats?.lifetime?.["K/D Ratio"]}
         stats={true}
         showPercentage={false}
+        background={"bg-orange-500"}
       />
     </div>
   );

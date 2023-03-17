@@ -4,9 +4,10 @@ export const TournamentHeaderCards = () => {
   return (
     <div className="grid">
       <TournamentHeaderCard
-        title={"2,286"}
+        title={"2434"}
         subtitle={"New tournaments"}
         image={"/images/trophy.png"}
+        background={"bg-indigo-500"}
       >
         <span className="text-green-500 text-sm absolute top-0 right-0 flex align-items-center">
           {" "}
@@ -22,6 +23,7 @@ export const TournamentHeaderCards = () => {
         title={"231"}
         subtitle={"Total played"}
         image={"/images/trophy.png"}
+        background={"bg-indigo-500"}
       >
         <span className="text-red-500 text-sm absolute top-0 right-0 flex align-items-center">
           {" "}
@@ -37,6 +39,7 @@ export const TournamentHeaderCards = () => {
         title={"124K"}
         subtitle={"Total points"}
         icon={"pi-star"}
+        background={"bg-yellow-500"}
       >
         <span className="text-green-500 text-sm absolute top-0 right-0 flex align-items-center">
           {" "}
@@ -52,6 +55,7 @@ export const TournamentHeaderCards = () => {
         title={"4.24"}
         subtitle={"New players"}
         icon={"pi-users"}
+        background={"bg-red-500"}
       >
         <span className="text-red-500 text-sm absolute top-0 right-0 flex align-items-center">
           {" "}

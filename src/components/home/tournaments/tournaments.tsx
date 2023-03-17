@@ -15,6 +15,7 @@ export const Tournaments = () => {
         subtitle={"Points"}
         secondValue={125}
         showPercentage={true}
+        background={"bg-yellow-500"}
       />
     </div>
   );

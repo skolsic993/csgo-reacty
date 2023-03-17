@@ -11,10 +11,11 @@ const Hubs = () => {
         icon={"pi-sitemap"}
         title={"Hubs"}
         value={240}
-        secondIcon={"pi-star"}
+        secondIcon={"pi-users"}
         subtitle={"People"}
         secondValue={4}
         showPercentage={true}
+        background={"bg-red-500"}
       />
     </div>
   );

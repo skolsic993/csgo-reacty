@@ -9,6 +9,7 @@ export const CardBody = ({
   secondValue,
   stats,
   showPercentage,
+  background,
 }: {
   image?: boolean;
   icon?: string;
@@ -19,6 +20,7 @@ export const CardBody = ({
   subtitle: string;
   secondValue: number;
   stats?: boolean;
+  background?: string;
   showPercentage?: boolean;
 }) => {
   return (
@@ -46,7 +48,7 @@ export const CardBody = ({
         </div>
         <div className="flex flex-direction-row ml-4">
           <div
-            className="flex align-items-center justify-content-center bg-yellow-500 border-round"
+            className={`flex align-items-center justify-content-center border-round ${background}`}
             style={{ width: "2.5rem", height: "2.5rem" }}
           >
             {secondImage ? (
