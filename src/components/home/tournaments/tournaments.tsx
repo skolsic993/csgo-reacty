@@ -14,6 +14,7 @@ export const Tournaments = () => {
         secondIcon={"pi-star"}
         subtitle={"Points"}
         secondValue={125}
+        showPercentage={true}
       />
     </div>
   );

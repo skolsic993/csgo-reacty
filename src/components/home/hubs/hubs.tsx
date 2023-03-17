@@ -4,7 +4,7 @@ import { CardBody } from "../card-body/card-body";
 const Hubs = () => {
   return (
     <div className="surface-card shadow-2 p-3 border-round mt-3">
-      <CardHeader title="Tournaments" link="/tournaments" />
+      <CardHeader title="Hubs" link="/tournaments" />
 
       <CardBody
         image={false}
@@ -14,6 +14,7 @@ const Hubs = () => {
         secondIcon={"pi-star"}
         subtitle={"People"}
         secondValue={4}
+        showPercentage={true}
       />
     </div>
   );

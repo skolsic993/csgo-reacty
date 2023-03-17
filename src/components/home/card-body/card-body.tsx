@@ -8,6 +8,7 @@ export const CardBody = ({
   subtitle,
   secondValue,
   stats,
+  showPercentage,
 }: {
   image?: boolean;
   icon?: string;
@@ -18,6 +19,7 @@ export const CardBody = ({
   subtitle: string;
   secondValue: number;
   stats?: boolean;
+  showPercentage?: boolean;
 }) => {
   return (
     <div className="flex flex-wrap">
@@ -60,7 +62,8 @@ export const CardBody = ({
             <span className="block text-500 text-sm mb-1"> {subtitle} </span>
             <span className="block text-500 text-yellow-400 font-medium">
               {" "}
-              {secondValue}K{" "}
+              {secondValue}
+              {showPercentage ? "K" : ""}{" "}
             </span>
           </div>
         </div>

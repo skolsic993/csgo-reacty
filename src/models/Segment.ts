@@ -4,6 +4,11 @@ export interface Segment {
   img_small: string;
   img_regular: string;
   stats: {
+    ["Average Kills"]: string;
+    ["Average Assists"]: string;
+    ["Average Deaths"]: string;
+    ["Headshots per Match"]: string;
+    ["Average MVPs"]: string;
     winRate: string;
     assists: string;
     headshotPerMatch: string;

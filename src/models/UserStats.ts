@@ -4,6 +4,14 @@ export interface UserStats {
   player_id: string;
   game_id: string;
   lifetime: {
+    ["Wins"]: string;
+    ["Win Rate %"]: string;
+    ["Average K/D Ratio"]: string;
+    ["Average Headshots %"]: string;
+    ["Current Win Streak"]: string;
+    ["Longest Win Streak"]: string;
+    ["Matches"]: string;
+    ["Recent Results"]: string[];
     totalHeadshot: string;
     headshot: string;
     longestWin: string;

@@ -4,31 +4,32 @@ import { Chart } from "primereact/chart";
 import { Dropdown } from "primereact/dropdown";
 import { useEffect, useState } from "react";
 
-const PolarArea = ({ stats }: { stats: UserStats | any }) => {
+const PolarArea = ({ userStats }: { userStats: UserStats }) => {
   const [chartData, setChartData] = useState({});
   const [chartOptions, setChartOptions] = useState({});
   const [selectedMap, setSelectedMap] = useState({
-    name: stats?.segments[0].label,
+    name: userStats?.segments[0].label,
   });
 
-  const maps = stats?.segments.map((item: Segment) => {
+  const maps = userStats?.segments.map((item: Segment) => {
     return { name: item?.label };
   });
 
-  const selectedMapStats = stats?.segments.filter((item: Segment) => {
-    return item.label === selectedMap.name;
-  });
-
   useEffect(() => {
+    const selectedMapStats = userStats?.segments.filter((item: Segment) => {
+      return item.label === selectedMap.name;
+    });
+
     const data = {
       datasets: [
         {
           data: [
-            selectedMapStats[0]?.stats?.["Average Kills"],
-            selectedMapStats[0]?.stats?.["Average Assists"],
-            selectedMapStats[0]?.stats?.["Average Deaths"],
-            selectedMapStats[0]?.stats?.["Headshots per Match"],
-            selectedMapStats[0]?.stats?.["Average MVPs"],
+            selectedMapStats && selectedMapStats[0]?.stats?.["Average Kills"],
+            selectedMapStats && selectedMapStats[0]?.stats?.["Average Assists"],
+            selectedMapStats && selectedMapStats[0]?.stats?.["Average Deaths"],
+            selectedMapStats &&
+              selectedMapStats[0]?.stats?.["Headshots per Match"],
+            selectedMapStats && selectedMapStats[0]?.stats?.["Average MVPs"],
           ],
           backgroundColor: [
             "#42A5F5",
@@ -88,7 +89,7 @@ const PolarArea = ({ stats }: { stats: UserStats | any }) => {
           onChange={(e) => setSelectedMap(e.value)}
           options={maps}
           optionLabel="name"
-          placeholder="Select a City"
+          placeholder="Select a Map"
           className="w-full md:w-14rem"
         />
       </div>

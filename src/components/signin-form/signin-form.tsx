@@ -1,6 +1,7 @@
 import { Input } from "@/shared/input/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
+import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { Button } from "primereact/button";
 import { Message } from "primereact/message";
@@ -34,12 +35,16 @@ const SignInForm = () => {
   const onSubmit = async (values: LoginUserInput) => {
     setLoadingButton(true);
     try {
-      await axios.post(
-        `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/auth/signin`,
-        values,
-        { withCredentials: true }
-      );
+      let token: string = "";
+      await axios
+        .post(
+          `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/auth/signin`,
+          values,
+          { withCredentials: true }
+        )
+        .then((response) => (token = response?.data?.accessToken));
 
+      Cookies.set("token", token);
       router.push("/");
       setLoadingButton(false);
     } catch (error: any) {

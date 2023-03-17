@@ -5,6 +5,7 @@ const UserStatsCard = ({
   icon,
   text,
   streak,
+  showPercentage,
 }: {
   title?: string;
   rate?: string;
@@ -12,6 +13,7 @@ const UserStatsCard = ({
   icon?: string;
   text?: string;
   streak?: string[];
+  showPercentage?: boolean;
 }) => {
   const streakValues = streak?.map((item: string) => {
     return +item > 0 ? item.replace("1", "w") : item.replace("0", "l");
@@ -52,7 +54,8 @@ const UserStatsCard = ({
                 : "text-red-500"
             } font-medium`}
           >
-            {average + "%"}
+            {average}
+            {showPercentage ? "%" : ""}
           </span>
         )}
 

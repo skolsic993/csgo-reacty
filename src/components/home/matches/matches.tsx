@@ -19,6 +19,7 @@ export const Matches = ({ userStats }: { userStats: any }) => {
         subtitle={" K/D Ratio"}
         secondValue={userStats?.lifetime?.["K/D Ratio"]}
         stats={true}
+        showPercentage={false}
       />
     </div>
   );

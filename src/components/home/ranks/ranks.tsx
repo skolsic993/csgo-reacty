@@ -1,6 +1,12 @@
+import useFetch from "@/hooks/useFetch";
+import { Rank } from "@/models/Rank";
 import { Badge } from "primereact/badge";
 
-export const Ranks = ({ ranks }: { ranks: any }) => {
+export const Ranks = () => {
+  const { data: ranks }: { data: { items: Rank[] } } = useFetch(
+    `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/ranks/EU`
+  );
+
   return (
     <div className="surface-card shadow-2 p-3 border-round">
       <div className="flex justify-content-between align-items-center">
@@ -8,7 +14,7 @@ export const Ranks = ({ ranks }: { ranks: any }) => {
       </div>
 
       <div className="flex flex-column">
-        {ranks?.map((rank: any) => (
+        {ranks?.items?.slice(0, 6).map((rank: Rank) => (
           <div className="flex mt-4" key={rank?.player_id}>
             <div>
               <span className="font-semibold">{rank?.position + "."}</span>
