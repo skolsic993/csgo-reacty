@@ -1,4 +1,4 @@
-const TournamentHeaderCard = ({
+const HeaderCard = ({
   subtitle,
   title,
   children,
@@ -35,4 +35,4 @@ const TournamentHeaderCard = ({
   );
 };
 
-export default TournamentHeaderCard;
+export default HeaderCard;

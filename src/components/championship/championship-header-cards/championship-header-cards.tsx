@@ -1,6 +1,6 @@
 import HeaderCard from "@/shared/header-card/header-card";
 
-export const TournamentHeaderCards = () => {
+const ChampionshiptHeaderCards = () => {
   return (
     <div className="grid">
       <HeaderCard
@@ -69,3 +69,5 @@ export const TournamentHeaderCards = () => {
     </div>
   );
 };
+
+export default ChampionshiptHeaderCards;
