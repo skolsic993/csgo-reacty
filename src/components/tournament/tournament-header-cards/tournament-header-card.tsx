@@ -4,8 +4,8 @@ export const TournamentHeaderCards = () => {
   return (
     <div className="grid">
       <HeaderCard
-        title={"2434"}
-        subtitle={"New tournaments"}
+        title={"725"}
+        subtitle={"Tournaments"}
         image={"/images/trophy.png"}
         background={"bg-indigo-500"}
       >

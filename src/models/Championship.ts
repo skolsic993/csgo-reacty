@@ -20,4 +20,12 @@ export interface Championship {
   slots: number;
   current_subscriptions: number;
   total_prizes: number;
+  stream: {
+    active: boolean;
+  };
+  anticheat_required: boolean;
+  join_checks: {
+    min_skill_level: number;
+    max_skill_level: number;
+  };
 }

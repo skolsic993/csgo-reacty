@@ -21,7 +21,7 @@ export const Tournaments = () => {
       <div className="border-round mb-1">
         {data?.items?.slice(0, 10).map((tournament: Tournament) => (
           <li
-            className="p-3 flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-2 surface-card shadow-1 border-round cursor-pointer"
+            className="p-3 flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-2 surface-card shadow-1 border-round cursor-pointer transition-duration-400 hover:shadow-4"
             key={tournament?.tournament_id}
             onClick={() => rediredToDetailsPage(tournament?.tournament_id)}
           >

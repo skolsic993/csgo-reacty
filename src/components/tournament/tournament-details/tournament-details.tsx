@@ -5,7 +5,7 @@ import { CardSegment } from "../card-segment/card-segment";
 const TournamentDetailsInfo = ({ tournament }: { tournament: Tournament }) => {
   return (
     <div className="col-12 md:col-6 xl:col-4">
-      <div className="surface-card shadow-2 p-4 border-round flex flex-column justify-content-center align-items-center">
+      <div className="surface-card shadow-2 p-4 border-round flex flex-column justify-content-center align-items-center transition-duration-400 hover:shadow-4">
         <div className="bg-indigo-500 p-3 border-round">
           <img
             src="/images/trophy.png"

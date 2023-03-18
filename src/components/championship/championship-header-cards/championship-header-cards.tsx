@@ -4,23 +4,23 @@ const ChampionshiptHeaderCards = () => {
   return (
     <div className="grid">
       <HeaderCard
-        title={"2434"}
-        subtitle={"New tournaments"}
+        title={"456"}
+        subtitle={"Championships"}
         image={"/images/trophy.png"}
         background={"bg-indigo-500"}
       >
-        <span className="text-green-500 text-sm absolute top-0 right-0 flex align-items-center">
+        <span className="text-red-500 text-sm absolute top-0 right-0 flex align-items-center">
           {" "}
           <i
-            className="pi text-green-500 pi-angle-up"
+            className="pi text-red-500 pi-angle-down"
             style={{ fontSize: "1.2rem", color: "#48ff66" }}
           ></i>
-          25.8%
+          5.8%
         </span>
       </HeaderCard>
 
       <HeaderCard
-        title={"231"}
+        title={"74"}
         subtitle={"Total played"}
         image={"/images/trophy.png"}
         background={"bg-indigo-500"}
@@ -36,7 +36,7 @@ const ChampionshiptHeaderCards = () => {
       </HeaderCard>
 
       <HeaderCard
-        title={"124K"}
+        title={"65K"}
         subtitle={"Total points"}
         icon={"pi-star"}
         background={"bg-yellow-500"}

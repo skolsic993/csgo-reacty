@@ -1,7 +1,9 @@
 import useFetch from "@/hooks/useFetch";
 import { Championship } from "@/models/Championship";
+import pickCorrectColor from "@/utils/pickKrobColor";
 import { useRouter } from "next/router";
 import { Badge } from "primereact/badge";
+import { Divider } from "primereact/divider";
 import { Knob } from "primereact/knob";
 
 export const ChampionshipList = () => {
@@ -11,7 +13,7 @@ export const ChampionshipList = () => {
   );
 
   const rediredToDetailsPage = (championship_id: string) => {
-    router.push(`/tournaments/${championship_id}`);
+    router.push(`/championships/${championship_id}`);
   };
 
   return (
@@ -19,7 +21,7 @@ export const ChampionshipList = () => {
       <div className="border-round mb-1">
         {data?.items?.slice(0, 10).map((championship: Championship) => (
           <li
-            className="p-3 flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-2 surface-card shadow-1 border-round cursor-pointer"
+            className="p-3 flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-2 surface-card shadow-1 border-round cursor-pointer transition-duration-400 hover:shadow-4"
             key={championship?.championship_id}
             onClick={() => rediredToDetailsPage(championship?.championship_id)}
           >
@@ -35,34 +37,53 @@ export const ChampionshipList = () => {
                   }
                   className="mr-2"
                 ></Badge>
-                {/* <Badge
-                  value={championship?.invite_type}
-                  severity="info"
+
+                <Badge
+                  value={
+                    championship?.anticheat_required
+                      ? "Anticheat required"
+                      : "Anticheat not required"
+                  }
+                  severity={"danger"}
                   className="mr-2"
                 ></Badge>
+
                 <Badge
-                  value={championship?.region}
-                  severity="info"
+                  value={
+                    championship?.stream?.active
+                      ? "Stream enabled"
+                      : "Stream disabled"
+                  }
+                  severity={championship?.stream?.active ? "success" : "danger"}
                   className="mr-2"
                 ></Badge>
-                <Badge
-                  value={tournament?.membership_type}
-                  severity="info"
-                  className="mr-2"
-                ></Badge> */}
               </div>
             </div>
             <div className="flex lg:justify-content-between align-items-center">
               <div className="flex flex-column sm:flex-row">
-                <Knob value={1} max={5} readOnly size={40} />
-                {/* <Divider layout="vertical" className="p-0 hidden sm:block" />
                 <Knob
-                  value={tournament?.max_skill}
+                  value={
+                    championship?.join_checks.min_skill_level === -1
+                      ? 1
+                      : championship?.join_checks.min_skill_level
+                  }
+                  max={championship?.join_checks.max_skill_level}
+                  readOnly
+                  size={40}
+                  valueColor={pickCorrectColor(
+                    championship?.join_checks.min_skill_level
+                  )}
+                />
+                <Divider layout="vertical" className="p-0 hidden sm:block" />
+                <Knob
+                  value={championship?.join_checks.max_skill_level}
                   max={10}
                   readOnly
                   size={40}
-                  valueColor={pickCorrectColor(tournament?.max_skill)}
-                /> */}
+                  valueColor={pickCorrectColor(
+                    championship?.join_checks.max_skill_level
+                  )}
+                />
               </div>
 
               <div className="ml-4 flex justify-content-evenly align-items-center w-5rem">
@@ -73,12 +94,12 @@ export const ChampionshipList = () => {
                 {championship?.total_prizes}
               </div>
 
-              <div className="ml-4 flex justify-content-evenly align-items-center w-5rem">
+              <div className="ml-4 flex justify-content-evenly align-items-center w-6rem">
                 <i
-                  className="pi text-indigo-400 pi-users"
+                  className="pi text-indigo-400 pi-users mr-1"
                   style={{ fontSize: "1.5rem" }}
                 ></i>
-                {championship?.featured}/{championship?.region}
+                {championship?.slots} Slots
               </div>
             </div>
           </li>

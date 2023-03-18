@@ -3,7 +3,7 @@ import { FaceitAccount } from "@/models/FaceitAccount";
 const UserDetails = ({ faceitUser }: { faceitUser: FaceitAccount }) => {
   return (
     <>
-      <div className="surface-card shadow-1 p-3 border-round mb-2">
+      <div className="surface-card shadow-1 p-3 border-round mb-2 transition-duration-400 hover:shadow-4">
         <div className="flex align-items-start flex-column lg:flex-row lg:justify-content-between ">
           <div className="w-full flex align-items-center sm:align-items-start flex-column sm:flex-row">
             <img

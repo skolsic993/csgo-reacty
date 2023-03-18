@@ -21,7 +21,7 @@ const UserStatsCard = ({
 
   return (
     <div className="col-12 md:col-6 lg:col-6 xl:col-3">
-      <div className="surface-card shadow-2 p-3 border-round">
+      <div className="surface-card shadow-2 p-3 border-round transition-duration-400 hover:shadow-4">
         <div className="flex justify-content-between mb-3">
           <div>
             <span className="block text-500 font-medium mb-3">{title}</span>

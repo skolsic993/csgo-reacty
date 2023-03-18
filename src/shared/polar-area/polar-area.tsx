@@ -79,7 +79,7 @@ const PolarArea = ({ userStats }: { userStats: UserStats }) => {
 
   return (
     <div
-      className="surface-card shadow-2 p-3 border-round flex flex-column align-items-center"
+      className="surface-card shadow-2 p-3 border-round flex flex-column align-items-center transition-duration-400 hover:shadow-4"
       key={Math.random()}
     >
       <div className="flex justify-content-between flex-wrap align-items-center w-full mb-4">
