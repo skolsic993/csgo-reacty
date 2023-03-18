@@ -9,9 +9,11 @@ export const ChampionshipTeam = ({ member }: { member: Member }) => {
       <div className="flex justify-content-between align-items-center flex-wrap">
         <div className="flex">
           <Avatar
-            image={member?.avatar ? member?.avatar : "/images/user-logo.png"}
+            image={member?.avatar ? member?.avatar : ""}
+            label={member?.avatar ? "" : "?"}
             size="large"
             shape="circle"
+            className="shadow-3"
           />
           <div className="flex flex-column justify-content-between ml-3">
             <span>{member?.nickname}</span>

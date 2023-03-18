@@ -3,6 +3,7 @@ import { UserStats } from "@/models/UserStats";
 import { Chart } from "primereact/chart";
 import { Dropdown } from "primereact/dropdown";
 import { useEffect, useState } from "react";
+import CardHeader from "../card-header/card-header";
 
 const PolarArea = ({ userStats }: { userStats: UserStats }) => {
   const [chartData, setChartData] = useState({});
@@ -82,8 +83,8 @@ const PolarArea = ({ userStats }: { userStats: UserStats }) => {
       className="surface-card shadow-2 p-3 border-round flex flex-column align-items-center transition-duration-400 hover:shadow-4"
       key={Math.random()}
     >
-      <div className="flex justify-content-between flex-wrap align-items-center w-full mb-4">
-        <h2 className="text-xl font-medium mb-2">User Map Statistics</h2>
+      <div className="flex justify-content-between flex-wrap align-items-start w-full mb-4">
+        <CardHeader title="User map statistics" />
         <Dropdown
           value={selectedMap}
           onChange={(e) => setSelectedMap(e.value)}

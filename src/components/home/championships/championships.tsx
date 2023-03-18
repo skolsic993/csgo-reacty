@@ -1,3 +1,4 @@
+import CardHeader from "@/shared/card-header/card-header";
 import Link from "next/link";
 
 export const Championships = () => {
@@ -5,9 +6,7 @@ export const Championships = () => {
     <Link href="/championships">
       <div className="surface-card shadow-2 p-3 border-round mt-3 transition-duration-400 hover:shadow-4">
         {" "}
-        <div className="flex justify-content-between align-items-center">
-          <h2 className="text-xl font-medium mb-2">Championships</h2>
-        </div>
+        <CardHeader title="Championships" />
         <div className="flex justify-content-between align-items-center w-full flex-wrap">
           <div className="flex flex-column mt-2">
             <span className="font-medium text-500">New championship</span>

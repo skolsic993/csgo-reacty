@@ -1,5 +1,6 @@
 import useFetch from "@/hooks/useFetch";
 import { Rank } from "@/models/Rank";
+import CardHeader from "@/shared/card-header/card-header";
 import Link from "next/link";
 import { Badge } from "primereact/badge";
 
@@ -11,9 +12,7 @@ export const Ranks = () => {
   return (
     <Link href="/ranks">
       <div className="surface-card shadow-2 p-3 border-round transition-duration-400 hover:shadow-4">
-        <div className="flex justify-content-between align-items-center">
-          <h2 className="text-xl font-medium mb-2">Rankings</h2>
-        </div>
+        <CardHeader title="Rankings" />
 
         <div className="flex flex-column">
           {ranks?.items?.slice(0, 6).map((rank: Rank) => (

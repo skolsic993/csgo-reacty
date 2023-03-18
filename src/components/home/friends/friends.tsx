@@ -1,5 +1,6 @@
 import useFetch from "@/hooks/useFetch";
 import { FaceitAccount } from "@/models/FaceitAccount";
+import CardHeader from "@/shared/card-header/card-header";
 
 const Friends = ({ friends }: { friends: string }) => {
   const { data }: { data: FaceitAccount[] } = useFetch(
@@ -8,9 +9,7 @@ const Friends = ({ friends }: { friends: string }) => {
 
   return (
     <div className="surface-card shadow-2 p-3 border-round mb-3 transition-duration-400 hover:shadow-4">
-      <div className="flex justify-content-between align-items-center">
-        <h2 className="text-xl font-medium mb-2">Friends</h2>
-      </div>
+      <CardHeader title="Friends" />
 
       <div className="flex flex-column">
         {typeof data !== "string" &&

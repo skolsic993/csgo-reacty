@@ -8,7 +8,7 @@ export const ChampionshipDetailsInfo = ({
   championship: Championship;
 }) => {
   return (
-    <div className="col-12 md:col-6 xl:col-4">
+    <div className="col-12 md:col-12 xl:col-4">
       <div className="surface-card shadow-2 p-4 border-round flex flex-column justify-content-center align-items-center transition-duration-400 hover:shadow-4">
         <div className="w-full">
           <img
