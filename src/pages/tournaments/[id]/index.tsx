@@ -21,7 +21,7 @@ const TournamentDetails = () => {
 
   return (
     <>
-      <div className="grid p-2">
+      <div className="grid">
         <TournamentDetailsInfo tournament={data} />
       </div>
     </>
