@@ -61,6 +61,24 @@ const TournamentDetailsInfo = ({ tournament }: { tournament: Tournament }) => {
             <i className="pi text-indigo-50 text-xl pi-star"></i>
           </CardSegment>
         </div>
+
+        <div className="flex flex-wrap mb-4">
+          <CardSegment
+            title={0}
+            subtitle={"Joined"}
+            background={"bg-indigo-50"}
+          >
+            <i className="pi text-indigo-500 text-xl pi-sort-numeric-up-alt"></i>
+          </CardSegment>
+
+          <CardSegment
+            title={0}
+            subtitle={"Checked in"}
+            background={"bg-indigo-50"}
+          >
+            <i className="pi text-indigo-500 text-xl pi-sort-numeric-down-alt"></i>
+          </CardSegment>
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import TournamentDetailsInfo from "@/components/tournament/tournament-details/tournament-details";
+import TournamentTree from "@/components/tournament/tournament-tree/tournament-tree";
 import useFetch from "@/hooks/useFetch";
 import { Tournament } from "@/models/Tournament";
 import { useRouter } from "next/router";
@@ -23,6 +24,7 @@ const TournamentDetails = () => {
     <>
       <div className="grid">
         <TournamentDetailsInfo tournament={data} />
+        <TournamentTree tournament={data} />
       </div>
     </>
   );
