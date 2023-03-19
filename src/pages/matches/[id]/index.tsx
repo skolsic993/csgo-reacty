@@ -25,7 +25,7 @@ const MatchDetails = () => {
     <div className="grid p-2">
       {data && (
         <>
-          <div className="surface-card shadow-1 p-3 border-round mb-2 overflow-x w-full">
+          <div className="surface-card shadow-1 p-3 border-round mb-2 overflow-x w-full transition-duration-400 hover:shadow-4">
             <div className="flex justify-content-between align-items-center">
               <CardHeader
                 title={
@@ -56,7 +56,7 @@ const MatchDetails = () => {
             />
           </div>
 
-          <div className="surface-card shadow-1 p-3 border-round mb-2 overflow-x w-full">
+          <div className="surface-card shadow-1 p-3 border-round mb-2 overflow-x w-full transition-duration-400 hover:shadow-4">
             <div className="flex justify-content-between align-items-center">
               <CardHeader
                 title={
