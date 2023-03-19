@@ -14,7 +14,7 @@ export const Matches = ({ userStats }: { userStats: UserStats }) => {
 
         <CardBody
           image={true}
-          icon={""}
+          icon={"/images/match.png"}
           title={"Matches"}
           value={+userStats?.lifetime?.["Matches"]}
           secondIcon={""}

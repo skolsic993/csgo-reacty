@@ -22,7 +22,5 @@ export const config = {
     "/championships/:path*",
     "/hubs",
     "/hubs/:path*",
-    "/rankings",
-    "/rankings/:path*",
   ],
 };

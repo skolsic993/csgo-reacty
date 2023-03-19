@@ -92,7 +92,17 @@ const AppMenuitem = (props) => {
           target={item.target}
           tabIndex="0"
         >
-          <i className={classNames("layout-menuitem-icon", item.icon)}></i>
+          {item.icon && (
+            <i className={classNames("layout-menuitem-icon", item.icon)}></i>
+          )}
+          {item.image && (
+            <img
+              src={item.image}
+              alt="Icon"
+              style={{ width: "1rem", height: "1rem" }}
+              className="layout-menuitem-icon"
+            />
+          )}
           <span className="layout-menuitem-text">{item.label}</span>
           {item.items && (
             <i className="pi pi-fw pi-angle-down layout-submenu-toggler"></i>
@@ -111,7 +121,17 @@ const AppMenuitem = (props) => {
             target={item.target}
             tabIndex="0"
           >
-            <i className={classNames("layout-menuitem-icon", item.icon)}></i>
+            {item.icon && (
+              <i className={classNames("layout-menuitem-icon", item.icon)}></i>
+            )}
+            {item.image && (
+              <img
+                src={item.image}
+                alt="Icon"
+                style={{ width: "1rem", height: "1rem" }}
+                className="layout-menuitem-icon"
+              />
+            )}
             <span className="layout-menuitem-text">{item.label}</span>
             {item.items && (
               <i className="pi pi-fw pi-angle-down layout-submenu-toggler"></i>

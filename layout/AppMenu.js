@@ -16,14 +16,16 @@ const AppMenu = () => {
       label: "Pages",
       items: [
         {
-          label: "Register",
-          icon: "pi pi-fw pi-prime",
-          to: "/auth/signup",
+          label: "Tournaments",
+          icon: "",
+          image: "/images/trophy.png",
+          to: "/tournaments",
         },
         {
-          label: "Login",
-          icon: "pi pi-fw pi-google",
-          to: "/auth/signin",
+          label: "Matches",
+          icon: "",
+          image: "/images/match.png",
+          to: "/matches",
         },
       ],
     },

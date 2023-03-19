@@ -31,7 +31,11 @@ export const CardBody = ({
           style={{ width: "2.5rem", height: "2.5rem" }}
         >
           {image ? (
-            <img src="/images/trophy.png" alt="Trophy" className="w-6" />
+            <img
+              src={icon ? icon : "/images/trophy.png"}
+              alt="Trophy"
+              className="w-6"
+            />
           ) : (
             <i
               className="pi text-red-300 pi-flag"
