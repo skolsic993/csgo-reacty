@@ -4,16 +4,16 @@ const pickCorrectColor = (value: number) => {
       return "#fcd6d6";
     }
     case 0: {
-      return "#fcd6d6";
+      return "#fcd676";
     }
     case 1: {
-      return "#fcd6d6";
+      return "#fcd626";
     }
     case 2: {
-      return "#f89b9b";
+      return "#f89b4b";
     }
     case 3: {
-      return "#fc7979";
+      return "#fc7959";
     }
     case 4: {
       return "#fc4e4e";

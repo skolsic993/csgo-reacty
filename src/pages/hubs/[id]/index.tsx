@@ -67,7 +67,7 @@ const HubDetails = () => {
           <div className="flex flex-wrap mb-2">
             <div className="flex align-items-center justify-content-start border-round mb-1 p-2 w-11rem">
               <Knob
-                value={2}
+                value={1}
                 max={10}
                 readOnly
                 size={50}
@@ -83,7 +83,7 @@ const HubDetails = () => {
           <div className="flex flex-wrap mb-2">
             <div className="flex align-items-center justify-content-start border-round mb-1 p-2 w-12rem">
               <Knob
-                value={2}
+                value={10}
                 max={10}
                 readOnly
                 size={50}
