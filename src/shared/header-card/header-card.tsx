@@ -23,7 +23,7 @@ const HeaderCard = ({
           {image && <img src={image} alt="Icon" className="w-6" />}
           {icon && <i className={`pi text-indigo-50 text-xl ${icon}`}></i>}
         </div>
-        <div className="flex flex-column justify-content-between ml-3 w-6rem">
+        <div className="flex flex-column justify-content-between ml-3 w-7rem">
           <span className="block text-500 text-sm">{subtitle}</span>
           <div className="text-900 font-medium text-xl relative">
             {title}

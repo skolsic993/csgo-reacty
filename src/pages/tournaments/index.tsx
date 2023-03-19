@@ -4,14 +4,12 @@ import { TournamentHeaderCards } from "@/components/tournament/tournament-header
 const Tournament = () => {
   return (
     <>
-      <div>
-        <div className="surface-ground mb-2">
-          <TournamentHeaderCards />
-        </div>
+      <div className="surface-ground mb-2">
+        <TournamentHeaderCards />
+      </div>
 
-        <div>
-          <Tournaments />
-        </div>
+      <div>
+        <Tournaments />
       </div>
     </>
   );
