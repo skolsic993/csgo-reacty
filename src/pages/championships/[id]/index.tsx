@@ -14,9 +14,7 @@ const ChampionshipDetails = () => {
 
   useEffect(() => {
     if (id) {
-      setUrl(
-        `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/championships/${id}/details`
-      );
+      setUrl(`/championships/${id}/details`);
     }
   }, [id]);
 

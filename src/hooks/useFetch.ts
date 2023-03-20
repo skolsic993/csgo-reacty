@@ -11,9 +11,12 @@ const useFetch = (url: string) => {
       setLoading(true);
 
       try {
-        const response = await fetcher<Promise<any>>(url, {
-          withCredentials: true,
-        });
+        const response = await fetcher<Promise<any>>(
+          `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api` + url,
+          {
+            withCredentials: true,
+          }
+        );
 
         setData(response);
       } catch (err: any) {

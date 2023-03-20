@@ -9,9 +9,8 @@ import { Knob } from "primereact/knob";
 
 export const ChampionshipList = () => {
   const router = useRouter();
-  const { data }: { data: { items: Championship[] } } = useFetch(
-    `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/championships`
-  );
+  const { data }: { data: { items: Championship[] } } =
+    useFetch(`/championships`);
 
   const rediredToDetailsPage = (championship_id: string) => {
     router.push(`/championships/${championship_id}`);

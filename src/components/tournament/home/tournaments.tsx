@@ -8,9 +8,7 @@ import { Knob } from "primereact/knob";
 
 export const Tournaments = () => {
   const router = useRouter();
-  const { data }: { data: { items: Tournament[] } } = useFetch(
-    `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/tournaments`
-  );
+  const { data }: { data: { items: Tournament[] } } = useFetch(`/tournaments`);
 
   const rediredToDetailsPage = (tournament_id: string) => {
     router.push(`/tournaments/${tournament_id}`);

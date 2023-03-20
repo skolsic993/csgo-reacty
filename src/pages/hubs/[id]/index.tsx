@@ -15,9 +15,7 @@ const HubDetails = () => {
 
   useEffect(() => {
     if (id) {
-      setUrl(
-        `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/hubs/${id}/details`
-      );
+      setUrl(`/hubs/${id}/details`);
     }
   }, [id]);
 

@@ -15,9 +15,7 @@ const MatchDetails = () => {
 
   useEffect(() => {
     if (id) {
-      setUrl(
-        `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/matches/${id}/stats`
-      );
+      setUrl(`/matches/${id}/stats`);
     }
   }, [id]);
 

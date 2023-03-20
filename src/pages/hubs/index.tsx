@@ -6,9 +6,7 @@ import { Avatar } from "primereact/avatar";
 
 export const Hubs = () => {
   const id = Cookies.get("id");
-  const { data }: { data: { items: Hub[] } } = useFetch(
-    `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/hubs/${id}`
-  );
+  const { data }: { data: { items: Hub[] } } = useFetch(`/hubs/${id}`);
 
   return (
     <div className="grid">

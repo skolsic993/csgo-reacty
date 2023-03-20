@@ -8,9 +8,7 @@ import { Badge } from "primereact/badge";
 
 export default function Matches() {
   const id = Cookies.get("id");
-  const { data }: { data: { items: Match[] } } = useFetch(
-    `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/matches/${id}`
-  );
+  const { data }: { data: { items: Match[] } } = useFetch(`/matches/${id}`);
 
   const getResult = (match: Match) => {
     const winner = match?.results?.winner as keyof object;

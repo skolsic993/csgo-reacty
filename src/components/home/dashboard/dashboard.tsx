@@ -14,7 +14,7 @@ import { UserStatistics } from "../user-stats/user-stats";
 
 const Dashboard = ({ faceitUser }: { faceitUser: FaceitAccount }) => {
   const { data }: { data: UserStats } = useFetch(
-    `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/stats/${faceitUser?.player_id}`
+    `/stats/${faceitUser?.player_id}`
   );
 
   return (

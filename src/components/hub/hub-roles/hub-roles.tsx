@@ -11,9 +11,7 @@ const HubRoles = ({ hub }: { hub: Hub }) => {
 
   useEffect(() => {
     if (hub?.hub_id) {
-      setUrl(
-        `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/hubs/${hub?.hub_id}/roles`
-      );
+      setUrl(`/hubs/${hub?.hub_id}/roles`);
     }
   }, [hub?.hub_id]);
 

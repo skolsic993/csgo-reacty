@@ -3,9 +3,7 @@ import { FaceitAccount } from "@/models/FaceitAccount";
 import CardHeader from "@/shared/card-header/card-header";
 
 const Friends = ({ friends }: { friends: string }) => {
-  const { data }: { data: FaceitAccount[] } = useFetch(
-    `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/friends/${friends}`
-  );
+  const { data }: { data: FaceitAccount[] } = useFetch(`/friends/${friends}`);
 
   return (
     <div className="surface-card shadow-2 p-3 border-round mb-3 transition-duration-400 hover:shadow-4">

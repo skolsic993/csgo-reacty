@@ -4,9 +4,7 @@ import CardHeader from "@/shared/card-header/card-header";
 import { Badge } from "primereact/badge";
 
 export const Ranks = () => {
-  const { data: ranks }: { data: { items: Rank[] } } = useFetch(
-    `${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/ranks/EU`
-  );
+  const { data: ranks }: { data: { items: Rank[] } } = useFetch(`/ranks/EU`);
 
   return (
     <div className="surface-card shadow-2 p-3 border-round transition-duration-400 hover:shadow-4">
